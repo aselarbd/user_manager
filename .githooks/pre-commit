@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Reads its arguments from setup.cfg
+echo "Running bandit"
+bandit -r --ini setup.cfg
+
+# Reads its arguments from pyproject.toml
+echo "Running isort "
+isort user_manager/ server/
+
+echo "Running black"
+black user_manager/ server/
+
+# Reads its arguments from .flake8
+echo "Running flake8"
+flake8 user_manager/ server/
+# Reads its arguments from .pylintrc
+echo "Running pylint"
+pylint user_manager/ server/

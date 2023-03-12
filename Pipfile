@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+
+[dev-packages]
+bandit = "==1.7.5"
+black = "==23.1.0"
+isort = "*"
+flake8 = "==3.9.2"
+flake8-blind-except = "==0.1.1"
+flake8-commas = "==2.0.0"
+flake8-import-order = "==0.18.1"
+flake8-polyfill = "==1.0.2"
+flake8-quotes = "==1.0.0"
+flake8-tuple = "==0.4.1"
+pylint = "==2.17.0"
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.2"

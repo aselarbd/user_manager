@@ -1,0 +1,11 @@
+[tool.black]
+line-length=120
+skip-string-normalization=true
+
+[tool.isort]
+profile = "black"
+lines_between_sections = 1
+case_sensitive = true
+order_by_type = false
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+no_lines_before = ["LOCALFOLDER"]

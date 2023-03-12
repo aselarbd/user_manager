@@ -1,0 +1,35 @@
+# All error codes: http://pylint-messages.wikidot.com/all-codes
+
+[FORMAT]
+indent-string='    '
+
+# [MESSAGES CONTROL]
+# Disable the following PyLint categories and messages:
+# I = informational, like when we disable things locally
+# missing-docstring = we don't use docstrings at the moment <-- DISCUSS
+# line-too-long = checked by pep8
+# no-member = dunno? <- DISCUSS
+# fixme = no time to fix these yet <- DISCC
+# bad-continuation = we use the pep8 format which is less strict <- DISCUSS
+# broad-except = FOR NOW: we don't know what exceptions should be caught, should be removed later <- DISCUSS (must turn off rule individually?)
+# protected-access = we have a convention of marking _object as private and we also extend third party libraries <- DISCUSS
+# too-few-public-methods = Yea, no. Sometimes we only want one way into a class (controllers for example)
+# no-self-use = Stupid rule, if we want simple methods we should be allowed to
+# redefined-outer-name = causes naming to be much more complicated than it has to be <- DISCUSS
+# too-many-return-statements = Stupid rule, easier to return on bad cases in the start of a function
+# too-many-lines = For now this is very hard to fix <- DISCUSS
+# too-many-statements = For now this is very hard to fix <- DISCUSS
+# too-many-arguments = For now this is impossible as we group code by responsibility, candidate for refactoring later <- DISCUSS (must turn off rule individually?)
+# too-many-locals = See above <- DISCUSS (must turn off rule individually?)
+# too-many-instance-attributes = See above <- DISCUSS (must turn off rule individually?)
+# too-many-branches = See above <- DISCUSS (must turn off rule individually?)
+# too-many-public-methods = See above <- DISCUSS (must turn off rule individually?)
+# unused-import = pylint does not support typing at the moment, see https://github.com/PyCQA/pylint/issues/1063
+# logging-not-lazy = Too many errors, temporarily turning it off <- DISCUSS
+# inconsistent-return-statements = Stupid error that makes no sense, buhbye
+# invalid-name = Such a strict rule, look into enabling this when we're at 0 errors <- DISCUSS
+# assigning-non-slot = Used when assigning to an attribute not defined in the class slots
+disable=I,wrong-import-order,import-error,abstract-method,no-else-return,no-name-in-module,duplicate-code,len-as-condition,missing-docstring,line-too-long,no-member,fixme,broad-except,protected-access,too-few-public-methods, redefined-outer-name,too-many-return-statements,too-many-statements,too-many-arguments,too-many-locals,too-many-instance-attributes,too-many-ancestors,unused-import,logging-not-lazy,inconsistent-return-statements,invalid-name,ungrouped-imports,wrong-import-position,assigning-non-slot
+
+msg-template={path}:{line}: [{msg_id}({symbol}), {obj}] {msg}
+
