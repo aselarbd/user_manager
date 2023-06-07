@@ -1,8 +1,8 @@
 from django.urls import path
-from server.accounts.views.user_register_post import user_create_view
-from server.accounts.views.user_login_post import user_login_view
-from knox.views import LogoutView, LogoutAllView
+from knox.views import LogoutAllView, LogoutView
 
+from server.accounts.views.user_login_post import user_login_view
+from server.accounts.views.user_register_post import user_create_view
 
 urlpatterns = [
     path('register', user_create_view),

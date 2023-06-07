@@ -16,7 +16,6 @@ def user_login_view(request) -> Response:
     serializer = LoginSerializer(data=request.data)
 
     if serializer.is_valid(raise_exception=True):
-
         user = serializer.validated_data['user']
         login(request, user)
 
