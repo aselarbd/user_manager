@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'server.accounts',
+    'knox'
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+    ],
+}
+
+
+REST_KNOX = {
+    'USER_SERIALIZER': 'server.accounts.serializers.user_serializer.UserSerializer',
+    'TOKEN_TTL': timedelta(hours=1),  # Token expiration time in seconds (None for no expiration)
+    'TOKEN_LIMIT_PER_USER': None,  # Maximum number of active tokens per user (None for unlimited)
+    'AUTH_HEADER_PREFIX': 'Bearer',  # Prefix for the Authorization header token value
+    'SECURE_TOKEN_INCLUDE_UNSAFE': False,  # Include unsafe characters in the token string
+}
