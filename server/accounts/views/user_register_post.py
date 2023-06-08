@@ -14,7 +14,7 @@ def _filter_output_data(data: dict) -> dict:
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
-def user_create_view(request) -> Response:
+def user_register_view(request) -> Response:
     """Create user view"""
 
     serializer = CreateUserSerializer(data=request.data)
